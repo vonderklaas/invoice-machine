@@ -75,7 +75,7 @@ int main (void) {
         scanf("%s", &saveBill);
 
         if (saveBill == 'y') {
-          filePointer = fopen("Bills.txt", "a+");
+          filePointer = fopen("Bills.dat", "a+");
           fwrite(&ord, sizeof(struct orders), 1, filePointer);
           if (fwrite(&ord, sizeof(struct orders), 1, filePointer) == 1) {
             printf("\nSuccessfully saved!");
@@ -89,17 +89,17 @@ int main (void) {
       // Show all invoices
       case 2:
         system("clear");
-        filePointer = fopen("Bills.txt", "a+");
+        filePointer = fopen("Bills.dat", "r");
         printf("\n  *****Your Previous Invoices*****\n");
 
         while (fread(&order,sizeof(struct orders), 1, filePointer)) {
-            float total = 0;
-            generateBillHeader(order.customer, order.date);
-            for(int i = 0; i < order.numOfItems; i++){
-                generateBillBody(order.itm[i].item, order.itm[i].qty, order.itm[i].price);
-                total += order.itm[i].qty * order.itm[i].price;
-            }
-            generateBillFooter(total);
+          float total = 0;
+          generateBillHeader(order.customer, order.date);
+          for (int i = 0; i < order.numOfItems; i++) {
+            generateBillBody(order.itm[i].item, order.itm[i].qty, order.itm[i].price);
+            total += order.itm[i].qty * order.itm[i].price;
+          }
+          generateBillFooter(total);
         }
         fclose(filePointer);
         break;
@@ -110,16 +110,16 @@ int main (void) {
         fgets(name, 50, stdin);
         name[strlen(name) - 1] = 0;
         system("clear");
-        filePointer = fopen("Bills.txt", "r");
+        filePointer = fopen("Bills.dat", "r");
         printf("\t*****Invoice of %s*****", name);
 
-        while(fread(&order,sizeof(struct orders), 1, filePointer)){
+        while (fread(&order, sizeof(struct orders), 1, filePointer)) {
           float total = 0;
-          if(!strcmp(order.customer, name)){
+          if (!strcmp(order.customer, name)) {
             generateBillHeader(order.customer, order.date);
-            for(int i = 0; i < order.numOfItems; i++){
-                generateBillBody(order.itm[i].item, order.itm[i].qty, order.itm[i].price);
-                total += order.itm[i].qty * order.itm[i].price;
+            for (int i = 0; i < order.numOfItems; i++) {
+              generateBillBody(order.itm[i].item, order.itm[i].qty, order.itm[i].price);
+              total += order.itm[i].qty * order.itm[i].price;
             }
             generateBillFooter(total);
             invoiceFound = 1;
@@ -134,7 +134,7 @@ int main (void) {
 
       // Exit
       case 4:
-        printf("\n\t\tThanks, see you next time.\n\n");
+        printf("\nThanks, see you next time.\n\n");
         exit(0);
         break;
       default:
@@ -144,6 +144,6 @@ int main (void) {
     printf("\nDo you want to perform another operation?[y/n]:\t");
     scanf("%s", &contFlag);
   }
-  printf("\n\t\tThanks, see you next time.\n\n");
+  printf("\nThanks, see you next time.\n\n");
   printf("\n\n");
 }

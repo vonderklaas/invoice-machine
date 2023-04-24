@@ -36,12 +36,12 @@ void generateBillFooter (float total) {
   float finalTotal = netTotal + (cgst * 2); // 2 because CGST and SGST are same
   printf("---------------------------------------\n");
   printf("Sub Total\t\t\t%.2f", total);
-  printf("\nDiscount @10%s\t\t\t%.2f", "%", discount);
+  printf("\nDiscount - 10%s\t\t\t%.2f", "%", discount);
   printf("\n\t\t\t\t-------");
   printf("\nNet Total\t\t\t%.2f", netTotal);
-  printf("\nCGST @9%s\t\t\t%.2f", "%", cgst);
-  printf("\nSGST @9%s\t\t\t%.2f", "%", cgst);
+  printf("\nCGST - 9%s\t\t\t%.2f", "%", cgst);
+  printf("\nSGST - 9%s\t\t\t%.2f", "%", cgst);
   printf("\n---------------------------------------");
-  printf("\nTotal\t\t\t%.2f", finalTotal);
+  printf("\nTotal\t\t\t\t%.2f", finalTotal);
   printf("\n---------------------------------------\n");
 }
