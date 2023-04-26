@@ -14,4 +14,4 @@ make restaurant
 
 
 ### UI
-![Invoice](https://github.com/garbalau-github/restaurant-billing/blob/main/ui/INVOICE.png?raw=true)
+![Invoice](https://github.com/garbalau-github/restaurant-billing/blob/main/ui/SCREEN.png?raw=true)
