@@ -1,2 +1,6 @@
+# Saved Bills
 *.dat
 *.txt
+
+# Executable
+restaurant
