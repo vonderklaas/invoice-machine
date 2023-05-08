@@ -1,8 +1,8 @@
 ### Invoice Machine
 
-This is a command-line application written in *C* for generating bills and invoices for a restaurant. The application is designed to help managers quickly generate invoices for customers.
+I played a bit with *C* to build this command-line application. Now you can generate bills and invoices for your restaurant. It is designed to help managers quickly generate invoices for customers.
 
-### Compilation
+### Quick Start
 
 ```
 make restaurant
